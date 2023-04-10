@@ -2,10 +2,10 @@
 
 namespace pokemon
 {
-    internal class Program
+    public class Program
     {
-        static readonly string fichero = "pokemon.csv", filtrado = "pokemon2tipos.csv";
-        static readonly List<Pokemon> pkms = new();
+        static readonly string fichero = "pokemon.csv";
+        public static List<Pokemon> pkms = new();
 
         private static void Main()
         {
@@ -29,14 +29,13 @@ namespace pokemon
             //}
             Console.ReadKey();
         }
-
-        public static string StrongestPokemon(int generation)
+        public static string StrongestPokemon(int generation, List<Pokemon> pkms = null)
         {
             string s = pkms.Where(pkm => pkm.Generation == generation && !pkm.Legendary).MaxBy(pkm => pkm.Attack).Name;
             return s;
         }
 
-        public static void FilterPokemon()
+        public static void FilterPokemon(List<Pokemon> pkms = null)
         {
             StreamWriter sw = new("pokemon2tipos.csv");
             sw.WriteLine("#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary");

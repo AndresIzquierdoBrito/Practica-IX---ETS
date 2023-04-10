@@ -1,6 +1,6 @@
 ﻿namespace pokemon
 {
-    internal class Pokemon
+    public class Pokemon
     {
         readonly string name = "", type1, type2;
         readonly int id, total, hp, attack, defense, spAtk, spDef, speed, generation;
@@ -37,5 +37,7 @@
             this.generation = generation;
             this.legendary = legendary;
         }
+
+        
     }
 }
